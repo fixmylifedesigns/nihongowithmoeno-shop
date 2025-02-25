@@ -44,7 +44,7 @@ export async function POST(req) {
       await transporter.sendMail({
         from: process.env.EMAIL_USER,
         to: session.customer_details.email,
-        subject: "Order Confirmation - Multiverse Mixtape",
+        subject: "Order Confirmation - Nihongo With Moeno",
         html: `...`, // Previous HTML template
       });
 

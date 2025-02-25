@@ -99,7 +99,6 @@ export default function Cart() {
     setError(null);
   };
 
-//   if (!process.env.NEXT_SHOW_SHOP) return null;
 
   return (
     <div className="relative">

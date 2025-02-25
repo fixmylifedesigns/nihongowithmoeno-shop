@@ -6,103 +6,82 @@ import { CartProvider } from "@/context/CartContext";
 import Cart from "@/components/Cart";
 import styles from "./page.module.css";
 
-const geistSans = localFont({
-  src: "./fonts/GeistVF.woff",
-  variable: "--font-geist-sans",
-  weight: "100 900",
-});
-const geistMono = localFont({
-  src: "./fonts/GeistMonoVF.woff",
-  variable: "--font-geist-mono",
-  weight: "100 900",
-});
+// Define fonts - you may want to use a Japanese-friendly font
 
 export const metadata = {
   metadataBase: new URL("https://shop.nihongowithmoeno.com"),
   title: {
-    default: "MultiverseMixtape | New Wave Music Culture & Fashion",
-    template: "%s | MultiverseMixtape",
+    default: "Nihongo with Moeno Shop | Japanese-Inspired Merchandise",
+    template: "%s | Nihongo with Moeno Shop",
   },
   icons: {
     icon: "/favicon.ico",
     shortcut: "/favicon.ico",
   },
   description:
-    "Explore music-inspired fashion, vintage aesthetics, and unique posters influenced by New Wave, City Pop, and Japanese culture. Shop exclusive clothing, t-shirts, and collectibles.",
+    "Discover authentic Japanese-inspired merchandise, traditional designs, and unique products from Osaka. Shop exclusive clothing featuring Moeno and her dog Mui from Japan.",
   keywords: [
-    // Core Music & Fashion Keywords
-    "new wave",
-    "city pop",
-    "synthwave fashion",
-    "vaporwave fashion",
-    "retro clothing",
-    "music-inspired posters",
-    "music-inspired clothing",
-    "Japanese streetwear",
+    // Japanese Culture Keywords
+    "Japanese merchandise",
+    "Japanese culture",
     "Japanese fashion",
-    "Harajuku style",
-    "Y2K aesthetic",
-    "vintage music shirts",
-    "retro-futurism",
-    "80s fashion",
-    "indie fashion",
-    "underground music fashion",
-    "music culture",
-    "Japanese aesthetic",
+    "traditional Japanese designs",
+    "Japanese aesthetics",
+    "Osaka",
+    "Japan-inspired clothing",
+    "Japanese lifestyle",
+    "Japanese streetwear",
+    "Japanese patterns",
+    "kimono-inspired",
+    "Japan art",
 
-    // Clothing & Merchandise
-    "streetwear",
+    // Language & Education Connection
+    "Japanese language",
+    "Japanese teacher",
+    "nihongo",
+    "Japan educator",
+    "Japanese lessons",
+    "Japan learning materials",
+
+    // Merchandise Types
     "graphic tees",
-    "aesthetic posters",
-    "album cover art",
-    "merchandise",
-    "limited edition clothing",
-    "minimalist fashion",
-    "design t-shirts",
-    "collectible posters",
+    "Japanese apparel",
+    "Japanese home decor",
+    "Japanese accessories",
+    "Japanese-inspired gifts",
+    "Japanese stationery",
+    "Japanese prints",
+    "Japan posters",
+    "collectibles",
 
-    // AI & Digital Art (SEO Boost Without Overemphasis)
-    "AI music",
-    "AI fashion",
-    "AI clothing",
-    "AI posters",
-    "AI art",
-    "AI-generated designs",
-    "digital art fashion",
-    "AI-assisted design",
-    "algorithmic artwork",
-
-    // Brand & Niche
-    "Multiverse Mixtape",
-    "MultiverseMixtape",
-    "the Multiverse Mixtape",
-    "TheMultiverseMixtape",
-    "fixmylifenyc",
-    "fixmylifeco",
-    "fixmylife",
-    "fixmylifekyoto",
-    "fixmylifejapan",
-    "Keiko Nishimura",
-    "Spring Time",
-    "Kiko Nakayama",
-    "Found Love In Your Eyes",
-    "Ai City Pop",
-    "Ai Music",
+    // Brand & Personalization
+    "Nihongo with Moeno",
+    "Nihongo with Moeno Shop",
+    "Moeno",
+    "Mui",
+    "Mui dog",
+    "Osaka Japan",
+    "Japanese dog merchandise",
+    "dog-inspired designs",
+    "pet merchandise",
+    "Japanese language teacher",
+    "Osaka souvenirs",
+    "Japanese language blog",
   ],
   openGraph: {
-    title: "MultiverseMixtape | New Wave Culture & Fashion",
+    title: "Nihongo with Moeno Shop | Japanese-Inspired Merchandise",
     description:
-      "Discover music-inspired fashion, posters, and collectibles influenced by New Wave, City Pop, and Japanese aesthetics.",
+      "Discover authentic Japanese-inspired merchandise, traditional designs, and unique products featuring Moeno and her dog Mui from Osaka, Japan.",
     url: "https://shop.nihongowithmoeno.com",
-    siteName: "MultiverseMixtape",
+    siteName: "Nihongo with Moeno Shop",
     locale: "en_US",
     type: "website",
     images: [
       {
-        url: "https://shop.nihongowithmoeno.com/beautifuldays.jpg", // Ensure this exists
+        url: "https://shop.nihongowithmoeno.com/og-image.jpg", // Update with actual image
         width: 1200,
         height: 630,
-        alt: "MultiverseMixtape - New Wave Culture & Fashion",
+        alt: "Nihongo with Moeno Shop - Japanese-Inspired Merchandise",
       },
     ],
   },
@@ -119,19 +98,17 @@ export const metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "MultiverseMixtape | Music Culture & Fashion",
+    title: "Nihongo with Moeno Shop | Japanese-Inspired Merchandise",
     description:
-      "Explore music-inspired fashion, retro aesthetics, and unique posters influenced by New Wave & Japanese culture.",
-    images: ["https://shop.nihongowithmoeno.com/og.png"], // Ensure this exists
+      "Explore authentic Japanese-inspired clothing, traditional designs, and unique products from Osaka featuring Moeno and her dog Mui.",
+    images: ["https://shop.nihongowithmoeno.com/og-image.jpg"], // Update with actual image
   },
 };
 
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
+      <body className="antialiased">
         <Script src="https://js.stripe.com/v3/" strategy="beforeInteractive" />
         <CartProvider>
           <Header />
@@ -139,9 +116,50 @@ export default function RootLayout({ children }) {
           {children}
         </CartProvider>
         <footer className={styles.footer}>
-          <p>
-            &copy; 2025 <a href="https://www.nihongowithmoeno.com">Nihongowithmoeno</a>
-          </p>
+          <div className="max-w-7xl mx-auto px-4 py-8 flex flex-col md:flex-row justify-between items-center">
+            <div>
+              <p className="text-center md:text-left">
+                &copy; {new Date().getFullYear()}{" "}
+                <a
+                  href="https://www.nihongowithmoeno.com"
+                  className="text-blue-600 hover:underline"
+                >
+                  Nihongo with Moeno
+                </a>
+              </p>
+              <p className="text-sm text-gray-600 mt-1 text-center md:text-left">
+                Authentic Japanese-inspired merchandise from Osaka, Japan
+              </p>
+            </div>
+            <div className="mt-4 md:mt-0 flex gap-6">
+              <a
+                href="https://instagram.com/mui_inu"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-gray-600 hover:text-blue-600"
+              >
+                Follow @mui_inu
+              </a>
+              <a
+                href="https://www.nihongowithmoeno.com/contact"
+                className="text-gray-600 hover:text-blue-600"
+              >
+                Contact
+              </a>
+              <a
+                href="/shipping-policy"
+                className="text-gray-600 hover:text-blue-600"
+              >
+                Shipping
+              </a>
+              <a
+                href="/privacy-policy"
+                className="text-gray-600 hover:text-blue-600"
+              >
+                Privacy
+              </a>
+            </div>
+          </div>
         </footer>
       </body>
     </html>

@@ -18,7 +18,7 @@ function generateProductSchema(product, selectedVariant, options) {
     sku: selectedVariant?.sku,
     brand: {
       "@type": "Brand",
-      name: "Multiverse Mixtape",
+      name: "Nihongo With Moeno",
     },
     offers: {
       "@type": "Offer",
@@ -29,7 +29,7 @@ function generateProductSchema(product, selectedVariant, options) {
         : "https://schema.org/OutOfStock",
       seller: {
         "@type": "Organization",
-        name: "Multiverse Mixtape",
+        name: "Nihongo With Moeno",
       },
     },
   };
@@ -155,8 +155,8 @@ export default function ProductDetails({ params }) {
             </li>
             <li className="text-gray-500">/</li>
             <li>
-              <Link href="/shop" className="text-gray-500 hover:text-gray-700">
-                Shop
+              <Link href="/all-products" className="text-gray-500 hover:text-gray-700">
+              All Products
               </Link>
             </li>
             <li className="text-gray-500">/</li>

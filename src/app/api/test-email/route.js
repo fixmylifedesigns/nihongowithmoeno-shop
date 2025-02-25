@@ -98,11 +98,11 @@ export async function GET() {
                   </p>
                 </div>
                 
-                <a href="https://multiversemixtape.com/orders/${
+                <a href="https://shop.nihongowithmoeno.com/orders/${
                   testOrder.orderNumber
                 }" class="button">View Order Status</a>
                 
-                <p>Questions? Check out our <a href="https://multiversemixtape.com/faq" style="color: #611f69;">FAQ</a> or reply to this email.</p>
+                <p>Questions? Check out our <a href="https://shop.nihongowithmoeno.com/faq" style="color: #611f69;">FAQ</a> or reply to this email.</p>
               </div>
               
               <div class="footer">

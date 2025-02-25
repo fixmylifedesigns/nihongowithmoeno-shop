@@ -10,25 +10,34 @@ export default function Header() {
   return (
     <header className="header flex flex-col md:flex-row items-center justify-between p-4 bg-primary-color border-b-4 border-orange-600">
       <div className="flex items-center w-full md:w-auto justify-between">
-        <Link href="/">
+        {/* <Link href="/">
           <Image
             src="/images/logo.png"
-            alt="MultiverseMixtape Logo"
+            alt="Nihongo with Moeno Logo"
+            width={100}
+            height={100}
+            className="rounded-full"
+          />
+        </Link> */}
+        <button className="md:hidden" onClick={() => setMenuOpen(!menuOpen)}>
+          <Menu className="w-8 h-8 text-white" />
+        </button>
+      </div>
+      <Link href="/">
+          <Image
+            src="/images/logo.png"
+            alt="Nihongo with Moeno Logo"
             width={100}
             height={100}
             className="rounded-full"
           />
         </Link>
-        <button className="md:hidden" onClick={() => setMenuOpen(!menuOpen)}>
-          <Menu className="w-8 h-8 text-white" />
-        </button>
-      </div>
-      <div className="text-center md:flex-1">
+      {/* <div className="text-center md:flex-1">
         <h1 className="text-3xl text-white font-bold mb-2 md:mb-0">
           The Multiverse Mixtape
         </h1>
         <p className="text-white">Music, Fashion, and Nostalgia</p>
-      </div>
+      </div> */}
       <nav
         className={`nav md:flex ${
           menuOpen
