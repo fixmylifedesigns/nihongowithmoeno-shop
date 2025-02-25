@@ -3,7 +3,7 @@ User-agent: *
 Allow: /
 
 # Host
-Host: https://shop.nihongowithmoeno.com
+Host: https://shop.nihongowithmoeno.com/
 
 # Sitemaps
 Sitemap: https://shop.nihongowithmoeno.com/sitemap.xml

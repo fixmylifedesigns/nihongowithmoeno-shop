@@ -263,7 +263,7 @@ function AllProductsContent() {
             <div
               key={product.id}
               className="bg-white rounded-lg shadow-lg overflow-hidden transition-transform duration-300 hover:-translate-y-2 cursor-pointer flex flex-col h-full"
-              onClick={() => router.push(`/${product.id}`)}
+              onClick={() => router.push(`/all-products/${product.id}`)}
             >
               <div className="relative h-64 w-full">
                 <Image

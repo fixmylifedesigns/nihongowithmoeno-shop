@@ -52,11 +52,15 @@ function ShopHomepage() {
       {/* Hero Banner Section */}
       <div className="relative w-full h-96 rounded-xl overflow-hidden mb-12">
         <Image
-          src="/images/banner.png" // Update with your actual banner image
+          src="/images/banner.webp" // Convert your image to WebP format for better compression
           alt="Japan-inspired fashion and products"
-          layout="fill"
-          objectFit="cover"
-          priority
+          fill // 'layout="fill"' is deprecated in newer Next.js versions, use 'fill' prop instead
+          priority // This is good - tells Next.js to preload this image
+          placeholder="blur" // Add a blur-up effect while loading
+          blurDataURL="data:image/jpeg;base64,/9j..." // You'll need to generate this, or use a very small version of your image
+          sizes="100vw" // Tell the browser this image takes full viewport width
+          quality={85} // Lower quality (default is 75-80)
+          style={{ objectFit: "cover" }} // 'objectFit' should be in style prop in newer Next.js
         />
         <div className="absolute inset-0 bg-black bg-opacity-40 flex flex-col justify-center items-center p-8 text-center">
           <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">
@@ -90,7 +94,7 @@ function ShopHomepage() {
               <div
                 key={product.id}
                 className="bg-white rounded-lg shadow-lg overflow-hidden transition-transform duration-300 hover:-translate-y-2 cursor-pointer flex flex-col h-full"
-                onClick={() => router.push(`/${product.id}`)}
+                onClick={() => router.push(`/all-products/${product.id}`)}
               >
                 <div className="relative h-64 w-full">
                   <Image

@@ -127,9 +127,6 @@ export default function RootLayout({ children }) {
                   Nihongo with Moeno
                 </a>
               </p>
-              <p className="text-sm text-gray-600 mt-1 text-center md:text-left">
-                Authentic Japanese-inspired merchandise from Osaka, Japan
-              </p>
             </div>
             <div className="mt-4 md:mt-0 flex gap-6">
               <a
