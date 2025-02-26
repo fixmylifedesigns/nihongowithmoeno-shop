@@ -59,7 +59,14 @@ export default function Header() {
           >
             Home
           </Link>
+          <Link
+            href="/about"
+            className="block text-white py-2 px-4 hover:bg-secondary-color rounded"
+          >
+            About Us
+          </Link>
           <button
+          
             onClick={toggleCart}
             className="text-white p-2 rounded-full hover:bg-secondary-color transition-colors relative"
             aria-label="Toggle shopping cart"
