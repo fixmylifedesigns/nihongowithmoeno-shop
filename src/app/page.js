@@ -63,18 +63,24 @@ function ShopHomepage() {
           style={{ objectFit: "cover" }} // 'objectFit' should be in style prop in newer Next.js
         />
         <div className="absolute inset-0 bg-black bg-opacity-40 flex flex-col justify-center items-center p-8 text-center">
-          <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">
+          <h1 className="text-4xl md:text-5xl font-bold text-white mb-4 drop-shadow-[0_2px_1px_rgba(0,0,0,0.8)] [text-shadow:_0_1px_0_rgb(0_0_0_/_40%),_0_-1px_0_rgb(0_0_0_/_40%),_1px_0_0_rgb(0_0_0_/_40%),_-1px_0_0_rgb(0_0_0_/_40%),_1px_1px_2px_rgb(0_0_0_/_80%)]">
             Nihongo with Moeno Shop
           </h1>
-          <p className="text-xl text-white mb-6 max-w-2xl">
+          <p className="text-xl text-white mb-6 max-w-2xl drop-shadow-[0_1px_1px_rgba(0,0,0,0.8)] [text-shadow:_0_1px_0_rgb(0_0_0_/_40%),_0_-1px_0_rgb(0_0_0_/_40%),_1px_0_0_rgb(0_0_0_/_40%),_-1px_0_0_rgb(0_0_0_/_40%)]">
             Japanese-inspired clothing, accessories, and unique merchandise
             featuring Moeno and Mui
           </p>
           <button
             onClick={() => router.push("/all-products")}
-            className="bg-white text-blue-900 px-8 py-3 rounded-md font-medium hover:bg-blue-50 transition duration-300"
+            className="inline-block transition duration-300 transform hover:scale-105 focus:outline-none"
           >
-            Shop Now
+            <Image
+              src="/images/shopnow.png"
+              alt="Shop Now with Mui"
+              width={150}
+              height={75}
+              className="transition-all duration-300"
+            />
           </button>
         </div>
       </div>
@@ -164,10 +170,10 @@ function ShopHomepage() {
               Japan.
             </p>
             <p className="text-lg text-gray-700 mb-4">
-              Each item in this shop is carefully selected to reflect authentic
-              Japanese aesthetics and culture. From modern city pop inspired
-              designs to traditional motifs, Moeno&apos;s curated collection
-              brings a piece of Japan to your everyday life.
+              Each product in this shop is created by Moeno and inspired by
+              Japanese culture and her adorable dog, Mui. From traditional
+              motifs to unique modern designs, every item reflects her passion
+              for Japan and love for sharing its beauty with the world.
             </p>
             <p className="text-lg text-gray-700">
               Currently studying English, Moeno aspires to become a professional
@@ -179,18 +185,21 @@ function ShopHomepage() {
       </section>
 
       {/* Mui's Corner */}
+      {/* Mui's Corner */}
       <section className="mb-16">
-        <div className="bg-blue-50 rounded-xl p-8 md:p-12">
-          <div className="flex flex-col md:flex-row gap-8 items-center">
-            <div className="md:w-2/3">
-              <h2 className="text-3xl font-bold mb-4">Meet Mui</h2>
-              <p className="text-lg text-gray-700 mb-4">
+        <div className="bg-blue-50 rounded-xl p-6 md:p-12">
+          <div className="flex flex-col md:flex-row gap-6 md:gap-8 items-center">
+            <div className="w-full md:w-2/3">
+              <h2 className="text-2xl md:text-3xl font-bold mb-3 md:mb-4">
+                Meet Mui
+              </h2>
+              <p className="text-base md:text-lg text-gray-700 mb-3 md:mb-4">
                 Meet the furry face behind some of our most popular merchandise!
                 Mui is Moeno&apos;s adorable dog and a star in his own right.
                 Together from Osaka, Japan, Mui accompanies Moeno on various
                 adventures that they share on Instagram.
               </p>
-              <p className="text-lg text-gray-700 mb-6">
+              <p className="text-base md:text-lg text-gray-700 mb-4 md:mb-6">
                 Follow Mui&apos;s adventures at{" "}
                 <a
                   href="https://instagram.com/mui_inu"
@@ -204,20 +213,20 @@ function ShopHomepage() {
                 lovable pup!
               </p>
               {/* <button
-                onClick={() => router.push("/collections/mui")}
-                className="bg-blue-600 text-white px-6 py-2 rounded-md font-medium hover:bg-blue-700 transition duration-300"
-              >
-                Shop Mui Collection
-              </button> */}
+          onClick={() => router.push("/collections/mui")}
+          className="bg-blue-600 text-white px-5 py-2 rounded-md font-medium hover:bg-blue-700 transition duration-300"
+        >
+          Shop Mui Collection
+        </button> */}
             </div>
-            <div className="md:w-1/3">
-              <div className="relative w-full h-80 rounded-xl overflow-hidden">
+            <div className="w-full md:w-1/3">
+              <div className="relative w-full aspect-square md:h-80 rounded-xl overflow-hidden">
                 <Image
                   src="/images/mui-dog.jpg" // Update with actual image
                   alt="Mui the dog"
-                  layout="fill"
-                  objectFit="cover"
-                  className="rounded-xl"
+                  fill
+                  sizes="(max-width: 768px) 100vw, 33vw"
+                  className="object-cover rounded-xl"
                 />
               </div>
             </div>

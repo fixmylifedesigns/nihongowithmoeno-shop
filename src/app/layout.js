@@ -5,6 +5,7 @@ import Header from "@/components/Header";
 import { CartProvider } from "@/context/CartContext";
 import Cart from "@/components/Cart";
 import styles from "./page.module.css";
+import Footer from "@/components/Footer";
 
 // Define fonts - you may want to use a Japanese-friendly font
 
@@ -57,8 +58,12 @@ export const metadata = {
     // Brand & Personalization
     "Nihongo with Moeno",
     "Nihongo with Moeno Shop",
+    "Nihongo Moeno",
     "Moeno",
     "Mui",
+    "Mui inu",
+    "Mui",
+    "Mui_inu",
     "Mui dog",
     "Osaka Japan",
     "Japanese dog merchandise",
@@ -67,6 +72,8 @@ export const metadata = {
     "Japanese language teacher",
     "Osaka souvenirs",
     "Japanese language blog",
+    "Nihongo",
+    "Meono",
   ],
   openGraph: {
     title: "Nihongo with Moeno Shop | Japanese-Inspired Merchandise",
@@ -115,49 +122,7 @@ export default function RootLayout({ children }) {
           <Cart />
           {children}
         </CartProvider>
-        <footer className={styles.footer}>
-          <div className="max-w-7xl mx-auto px-4 py-8 flex flex-col md:flex-row justify-between items-center">
-            <div>
-              <p className="text-center md:text-left">
-                &copy; {new Date().getFullYear()}{" "}
-                <a
-                  href="https://www.nihongowithmoeno.com"
-                  className="text-blue-600 hover:underline"
-                >
-                  Nihongo with Moeno
-                </a>
-              </p>
-            </div>
-            <div className="mt-4 md:mt-0 flex gap-6">
-              <a
-                href="https://instagram.com/mui_inu"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-gray-600 hover:text-blue-600"
-              >
-                Follow @mui_inu
-              </a>
-              <a
-                href="https://www.nihongowithmoeno.com/contact"
-                className="text-gray-600 hover:text-blue-600"
-              >
-                Contact
-              </a>
-              <a
-                href="/shipping-policy"
-                className="text-gray-600 hover:text-blue-600"
-              >
-                Shipping
-              </a>
-              <a
-                href="/privacy-policy"
-                className="text-gray-600 hover:text-blue-600"
-              >
-                Privacy
-              </a>
-            </div>
-          </div>
-        </footer>
+        <Footer />
       </body>
     </html>
   );

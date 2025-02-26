@@ -115,6 +115,7 @@ export default function ProductDetails({ params }) {
         optionsData[option.name] = selectedValue.title;
       });
 
+      // Use the modified addToCart function that takes product and variant
       addToCart(product, selectedVariant.id, optionsData);
     }
   };
@@ -155,8 +156,11 @@ export default function ProductDetails({ params }) {
             </li>
             <li className="text-gray-500">/</li>
             <li>
-              <Link href="/all-products" className="text-gray-500 hover:text-gray-700">
-              All Products
+              <Link
+                href="/all-products"
+                className="text-gray-500 hover:text-gray-700"
+              >
+                All Products
               </Link>
             </li>
             <li className="text-gray-500">/</li>

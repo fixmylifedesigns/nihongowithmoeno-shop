@@ -1,57 +1,140 @@
 "use client";
-import { useState } from "react";
-import { Menu } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
+import { useState, useEffect } from "react";
+import { ShoppingCart } from "lucide-react";
+import { useCart } from "../context/CartContext";
 import "../app/globals.css";
 
 export default function Header() {
-  const [menuOpen, setMenuOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
+  const { items, isOpen, setIsOpen } = useCart(); // Access cart context
+
+  // Calculate total item count, including quantities
+  const totalItemCount = items.reduce(
+    (count, item) => count + item.quantity,
+    0
+  );
+
+  // Track scroll position to determine when to switch to fixed positioning
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 100) {
+        setIsScrolled(true);
+      } else {
+        setIsScrolled(false);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  // Toggle cart open/closed
+  const toggleCart = () => {
+    setIsOpen(!isOpen);
+  };
+
   return (
-    <header className="header flex flex-col md:flex-row items-center justify-between p-4 bg-primary-color border-b-4 border-orange-600">
-      <div className="flex items-center w-full md:w-auto justify-between">
-        {/* <Link href="/">
-          <Image
-            src="/images/logo.png"
-            alt="Nihongo with Moeno Logo"
-            width={100}
-            height={100}
-            className="rounded-full"
-          />
-        </Link> */}
-        <button className="md:hidden" onClick={() => setMenuOpen(!menuOpen)}>
-          <Menu className="w-8 h-8 text-white" />
-        </button>
-      </div>
-      <Link href="/">
-          <Image
-            src="/images/logo.png"
-            alt="Nihongo with Moeno Logo"
-            width={100}
-            height={100}
-            className="rounded-full"
-          />
-        </Link>
-      {/* <div className="text-center md:flex-1">
-        <h1 className="text-3xl text-white font-bold mb-2 md:mb-0">
-          The Multiverse Mixtape
-        </h1>
-        <p className="text-white">Music, Fashion, and Nostalgia</p>
-      </div> */}
-      <nav
-        className={`nav md:flex ${
-          menuOpen
-            ? "flex flex-col absolute top-full left-0 w-full bg-pink-300"
-            : "hidden"
-        } md:relative md:w-auto md:flex-row md:gap-4`}
-      >
+    <>
+      {/* Mobile Header */}
+      <header className="md:hidden header h-auto py-4 flex flex-col items-center justify-center bg-primary-color border-b-4 border-orange-600">
+        {/* Logo */}
+        <div className="mb-4">
+          <Link href="/">
+            <Image
+              src="/images/logo.png"
+              alt="Nihongo with Moeno Logo"
+              width={180}
+              height={90}
+            />
+          </Link>
+        </div>
+
+        {/* Mobile Navigation */}
+        <nav className="flex items-center gap-4 mt-2">
           <Link
             href="https://www.nihongowithmoeno.com"
             className="block text-white py-2 px-4 hover:bg-secondary-color rounded"
           >
             Home
           </Link>
-      </nav>
-    </header>
+          <button
+            onClick={toggleCart}
+            className="text-white p-2 rounded-full hover:bg-secondary-color transition-colors relative"
+            aria-label="Toggle shopping cart"
+          >
+            <ShoppingCart className="w-6 h-6" />
+            {totalItemCount > 0 && (
+              <span className="absolute -mt-2 ml-4 bg-red-500 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center">
+                {totalItemCount}
+              </span>
+            )}
+          </button>
+        </nav>
+      </header>
+
+      {/* Desktop Header */}
+      <header className="hidden md:flex header h-36 relative items-center justify-between p-4 bg-primary-color border-b-4 border-orange-600">
+        {/* Logo - absolutely positioned in the center */}
+        <div className="absolute left-1/2 transform -translate-x-1/2">
+          <Link href="/">
+            <Image
+              src="/images/logo.png"
+              alt="Nihongo with Moeno Logo"
+              width={200}
+              height={100}
+            />
+          </Link>
+        </div>
+
+        {/* Empty div to balance the header */}
+        <div className="w-20"></div>
+
+        {/* Right side navigation with Home and Cart */}
+        <nav className="flex items-center gap-4">
+          <Link
+            href="https://www.nihongowithmoeno.com"
+            className="block text-white py-2 px-4 hover:bg-secondary-color rounded"
+          >
+            Home
+          </Link>
+          <Link
+            href="/about"
+            className="block text-white py-2 px-4 hover:bg-secondary-color rounded"
+          >
+            About Us
+          </Link>
+          <button
+            onClick={toggleCart}
+            className="text-white p-6 rounded-full hover:bg-secondary-color transition-colors"
+            aria-label="Toggle shopping cart"
+          >
+            <ShoppingCart className="w-6 h-6" />
+            {totalItemCount > 0 && (
+              <span className="absolute -mt-10 ml-4 bg-red-500 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center">
+                {totalItemCount}
+              </span>
+            )}
+          </button>
+        </nav>
+      </header>
+
+      {/* Fixed Cart Button that appears when scrolling - hide when cart is open */}
+      {isScrolled && !isOpen && (
+        <button
+          onClick={toggleCart}
+          className="fixed top-4 right-4 z-50 bg-blue-600 text-white p-2 rounded-full shadow-lg hover:bg-blue-700 transition-colors relative"
+          aria-label="Toggle shopping cart"
+        >
+          <ShoppingCart className="w-6 h-6" />
+          {totalItemCount > 0 && (
+            <span className="absolute -top-2 -right-2 bg-red-500 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center">
+              {totalItemCount}
+            </span>
+          )}
+        </button>
+      )}
+    </>
   );
 }
