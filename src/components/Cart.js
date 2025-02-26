@@ -14,14 +14,14 @@ export default function Cart() {
   const [isProcessing, setIsProcessing] = useState(false);
   const [error, setError] = useState(null);
 
-  const { 
-    items, 
-    total, 
-    removeFromCart, 
-    updateQuantity, 
+  const {
+    items,
+    total,
+    removeFromCart,
+    updateQuantity,
     getCartForPrintify,
     isOpen,
-    setIsOpen
+    setIsOpen,
   } = useCart();
 
   const handleShippingSubmit = async (addressData) => {
@@ -113,9 +113,7 @@ export default function Cart() {
   return (
     <div className="relative">
       {/* Cart Sidebar */}
-      <div
-        className="fixed top-0 right-0 h-full w-full sm:w-96 bg-white shadow-lg z-40 transform transition-transform duration-300 ease-in-out translate-x-0"
-      >
+      <div className="fixed top-0 right-0 h-full w-full sm:w-96 bg-white shadow-lg z-40 transform transition-transform duration-300 ease-in-out translate-x-0">
         <div className="p-4 h-full flex flex-col">
           {/* Cart Header */}
           <div className="flex justify-between items-center border-b pb-4">
@@ -228,7 +226,7 @@ export default function Cart() {
               >
                 Proceed to Checkout
               </button>
-              
+
               {/* Additional close button at the bottom for easier mobile access */}
               <button
                 onClick={() => setIsOpen(false)}

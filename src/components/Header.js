@@ -124,12 +124,11 @@ export default function Header() {
       {isScrolled && !isOpen && (
         <button
           onClick={toggleCart}
-          className="fixed top-4 right-4 z-50 bg-blue-600 text-white p-2 rounded-full shadow-lg hover:bg-blue-700 transition-colors relative"
-          aria-label="Toggle shopping cart"
+          className="fixed top-4 right-4 z-50 bg-blue-600 text-white p-2 rounded-full shadow-lg hover:bg-blue-700 transition-colors"
         >
           <ShoppingCart className="w-6 h-6" />
           {totalItemCount > 0 && (
-            <span className="absolute -top-2 -right-2 bg-red-500 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center">
+            <span className="absolute -top-2 -right-2 bg-red-500 text-white text-xs rounded-full w-6 h-6 flex items-center justify-center">
               {totalItemCount}
             </span>
           )}
