@@ -43,7 +43,7 @@ export default function Header() {
         <div className="mb-4">
           <Link href="/">
             <Image
-              src="/images/logo.png"
+              src="/images/logo.webp"
               alt="Nihongo with Moeno Logo"
               width={180}
               height={90}
@@ -80,7 +80,7 @@ export default function Header() {
         <div className="absolute left-1/2 transform -translate-x-1/2">
           <Link href="/">
             <Image
-              src="/images/logo.png"
+              src="/images/logo.webp"
               alt="Nihongo with Moeno Logo"
               width={200}
               height={100}
